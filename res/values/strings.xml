@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TFG</string>
+    <string name="temp_label">TEMPERATURE</string>
+    <string name="temp"></string>
+    <string name="temp_anterior">Previous Temperature</string>
+    <string name="boton">CHECK TEMPERATURE</string>
+</resources>
