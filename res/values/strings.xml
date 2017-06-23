@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TFG</string>
+    <string name="app_name">TEMPERATURE &amp; HUMIDITY</string>
     <string name="temp_label">TEMPERATURE</string>
     <string name="temp"></string>
     <string name="temp_anterior">Previous Temperature</string>
