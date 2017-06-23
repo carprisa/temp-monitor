@@ -1,14 +1,11 @@
 package com.example.carlosprieto.tfg;
 
-import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.MalformedJsonException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UTFDataFormatException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -29,7 +26,7 @@ public class ClienteSocket implements Runnable {
     public void run() {
 
         try {
-            InetAddress HOST = InetAddress.getByName("192.168.1.140");
+            InetAddress HOST = InetAddress.getByName("192.168.1.2");
             int PORT = 80;
 
             socket = new Socket(HOST, PORT);
@@ -45,9 +42,9 @@ public class ClienteSocket implements Runnable {
             while (reader.hasNext()){
                 String name = reader.nextName();
                 if (name.equals("t")){
-                    tempHum.setTemperatura(reader.nextInt());
+                    tempHum.setTemperatura(reader.nextDouble());
                 } else if(name.equals("h")){
-                    tempHum.setHumedad(reader.nextInt());
+                    tempHum.setHumedad(reader.nextDouble());
                 } else {
                     reader.skipValue();
                 }

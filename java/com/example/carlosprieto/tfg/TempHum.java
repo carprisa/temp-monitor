@@ -5,8 +5,8 @@ package com.example.carlosprieto.tfg;
  */
 
 public class TempHum {
-    private int temperatura;
-    private int humedad;
+    private double temperatura;
+    private double humedad;
 
     public TempHum(){};
 
@@ -15,19 +15,19 @@ public class TempHum {
         this.humedad = humedad;
     }
 
-    public int getTemperatura() {
+    public double getTemperatura() {
         return temperatura;
     }
 
-    public void setTemperatura(int temperatura) {
+    public void setTemperatura(double temperatura) {
         this.temperatura = temperatura;
     }
 
-    public int getHumedad() {
+    public double getHumedad() {
         return humedad;
     }
 
-    public void setHumedad(int humedad) {
+    public void setHumedad(double humedad) {
         this.humedad = humedad;
     }
 }

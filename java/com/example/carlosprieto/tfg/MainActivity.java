@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // se inicia un nuevo socket al hacer click en el botón
 
             new Thread(new ClienteSocket()).start();
-            int tmp = tempHum.getTemperatura();
-            int hum = tempHum.getHumedad();
-            String t = Integer.toString(tmp);
-            String h = Integer.toString(hum);
+            double tmp = tempHum.getTemperatura();
+            double hum = tempHum.getHumedad();
+            String t = Double.toString(tmp);
+            String h = Double.toString(hum);
             tv.setText("Temperatura: " + t + "\nHumedad: " + h);
 
 
