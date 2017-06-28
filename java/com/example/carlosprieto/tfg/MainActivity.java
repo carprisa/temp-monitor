@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static com.example.carlosprieto.tfg.ClienteSocket.conectado;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -41,9 +43,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             // se inicia un nuevo socket al hacer click en el botón
             new Thread(new ClienteSocket()).start();
-            // almacenamos en variables double las salidas del método de la clase TempHum
+            // almacenamos en variables double y String las salidas del método de la clase TempHum
             Double tmp = tempHum.getTemperatura();
             Double hum = tempHum.getHumedad();
+            String fallo = tempHum.getFallo();
             // en el campo de T y H previa, si la actividad es nueva no muestra nada por no haber
             // asignación de valores previos
             if ((tmpOld != null) && (humOld != null)) {
@@ -52,8 +55,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             tmpOld = tmp;
             humOld = hum;
-            tv.setText("Temperature:\n" + String.format("%.2f", tmp) + " ºC" + "\n\nHumidity:\n "
-                    + String.format("%.2f", hum) + " %");
+
+            // comprueba si hay socket conectado para mostrar una info en pantalla u otra
+            if(conectado){
+                if(fallo.isEmpty()){
+                    tv.setText("Temperature:\n" + String.format("%.2f", tmp) + " ºC"
+                            + "\n\nHumidity:\n " + String.format("%.2f", hum) + " %");
+
+                } else { tv.setText("Ups! it seems that...\n" + fallo); }
+
+            } else {
+                tv.setText("Ooooh...\nthe system is not connected!");
+            }
 
 
         } catch (Exception e){
